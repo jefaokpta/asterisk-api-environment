@@ -1,0 +1,211 @@
+// Arquivo escrito automaticamente pelo sistema
+
+context VIP-ROUTE-100{
+    includes{
+        HANGUP-ACTIONS;
+        INVALID-ACTIONS;
+        FAILED-ACTIONS;
+        DialRouteGosub;
+    }
+    ALIASES => {
+        switch (${DST}) {
+            pattern 09:
+    Gosub(RULE-661,1); //ENTRADA SITE VCOM
+Gosub(RULE-659,1); //ENTRADA SITE VCOM fora do horario
+    goto i,1;
+pattern 552120420056:
+    Gosub(RULE-1090,1); //Entrada_BahiaCredRJ
+    goto i,1;
+pattern 2120420056:
+    Gosub(RULE-1090,1); //Entrada_BahiaCredRJ
+    goto i,1;
+pattern 1000:
+    Gosub(RULE-1546,1); //Teste FXO
+    goto i,1;
+pattern 1001:
+    Gosub(RULE-1546,1); //Teste FXO
+    goto i,1;
+pattern 1110:
+    Gosub(RULE-1546,1); //Teste FXO
+    goto i,1;
+pattern 1111:
+    Gosub(RULE-1546,1); //Teste FXO
+    goto i,1;
+pattern 100100[0-1]:
+    Gosub(RULE-1546,1); //Teste FXO
+    goto i,1;
+pattern [1-9]XXXXXX:
+    Gosub(RULE-3117,1); //IAX_VIP_CALLCENTER
+    goto i,1;
+pattern 0ZZ9XXXXXXXX:
+    Gosub(RULE-1470,1); //TesteRota_VC2/3
+Gosub(RULE-820,1); //Saidas_WTL_VC2e3
+Gosub(RULE-163,1); //CELULAR_DDD
+    goto i,1;
+pattern 0ZZ[6-9]XXXXXXX:
+    Gosub(RULE-1470,1); //TesteRota_VC2/3
+Gosub(RULE-1470,1); //TesteRota_VC2/3
+Gosub(RULE-820,1); //Saidas_WTL_VC2e3
+Gosub(RULE-820,1); //Saidas_WTL_VC2e3
+Gosub(RULE-163,1); //CELULAR_DDD
+Gosub(RULE-163,1); //CELULAR_DDD
+    goto i,1;
+pattern ZZ9XXXXXXXX:
+    Gosub(RULE-1470,1); //TesteRota_VC2/3
+Gosub(RULE-820,1); //Saidas_WTL_VC2e3
+Gosub(RULE-163,1); //CELULAR_DDD
+    goto i,1;
+pattern ZZ[6-9]XXXXXXX:
+    Gosub(RULE-1470,1); //TesteRota_VC2/3
+Gosub(RULE-820,1); //Saidas_WTL_VC2e3
+Gosub(RULE-163,1); //CELULAR_DDD
+    goto i,1;
+pattern [2-5]XXXXXXX:
+    Gosub(RULE-1467,1); //TesteRota_Fixo
+Gosub(RULE-1080,1); //FIXO_LOCAL
+    goto i,1;
+pattern 11[2-5]XXXXXXX:
+    Gosub(RULE-1467,1); //TesteRota_Fixo
+Gosub(RULE-1080,1); //FIXO_LOCAL
+    goto i,1;
+pattern 011[2-5]XXXXXXX:
+    Gosub(RULE-1467,1); //TesteRota_Fixo
+Gosub(RULE-1080,1); //FIXO_LOCAL
+    goto i,1;
+pattern +5511[2-5]XXXXXXX:
+    Gosub(RULE-1467,1); //TesteRota_Fixo
+Gosub(RULE-1080,1); //FIXO_LOCAL
+    goto i,1;
+pattern 5511[2-5]XXXXXXX:
+    Gosub(RULE-1467,1); //TesteRota_Fixo
+Gosub(RULE-1080,1); //FIXO_LOCAL
+    goto i,1;
+pattern ZZ[2-5]XXXXXXX:
+    Gosub(RULE-164,1); //FIXO_DDD
+Gosub(RULE-1469,1); //TesteRota_DDD
+Gosub(RULE-819,1); //Saidas_WTL_LDN
+    goto i,1;
+pattern 0ZZ[2-5]XXXXXXX:
+    Gosub(RULE-164,1); //FIXO_DDD
+Gosub(RULE-1469,1); //TesteRota_DDD
+Gosub(RULE-819,1); //Saidas_WTL_LDN
+    goto i,1;
+pattern +55ZZ[2-5]XXXXXXX:
+    Gosub(RULE-164,1); //FIXO_DDD
+Gosub(RULE-1469,1); //TesteRota_DDD
+Gosub(RULE-819,1); //Saidas_WTL_LDN
+    goto i,1;
+pattern 55ZZ[2-5]XXXXXXX:
+    Gosub(RULE-164,1); //FIXO_DDD
+Gosub(RULE-1469,1); //TesteRota_DDD
+Gosub(RULE-819,1); //Saidas_WTL_LDN
+    goto i,1;
+pattern 9XXXXXXXX:
+    Gosub(RULE-1468,1); //TesteRota_VC1
+Gosub(RULE-818,1); //Saidas_WTL_Celular
+Gosub(RULE-660,1); //Celular_Local
+Gosub(RULE-880,1); //LIGA PRO CALLBACK
+Gosub(RULE-3287,1); //SAIDA_CHIPEIRA_RP
+    goto i,1;
+pattern 7XXXXXXX:
+    Gosub(RULE-1468,1); //TesteRota_VC1
+Gosub(RULE-818,1); //Saidas_WTL_Celular
+Gosub(RULE-660,1); //Celular_Local
+Gosub(RULE-880,1); //LIGA PRO CALLBACK
+Gosub(RULE-3287,1); //SAIDA_CHIPEIRA_RP
+    goto i,1;
+pattern 119XXXXXXXX:
+    Gosub(RULE-1468,1); //TesteRota_VC1
+Gosub(RULE-818,1); //Saidas_WTL_Celular
+Gosub(RULE-660,1); //Celular_Local
+Gosub(RULE-880,1); //LIGA PRO CALLBACK
+Gosub(RULE-3287,1); //SAIDA_CHIPEIRA_RP
+    goto i,1;
+pattern 0119XXXXXXXX:
+    Gosub(RULE-1468,1); //TesteRota_VC1
+Gosub(RULE-818,1); //Saidas_WTL_Celular
+Gosub(RULE-660,1); //Celular_Local
+Gosub(RULE-880,1); //LIGA PRO CALLBACK
+Gosub(RULE-3287,1); //SAIDA_CHIPEIRA_RP
+    goto i,1;
+pattern 117XXXXXXX:
+    Gosub(RULE-1468,1); //TesteRota_VC1
+Gosub(RULE-818,1); //Saidas_WTL_Celular
+Gosub(RULE-660,1); //Celular_Local
+Gosub(RULE-880,1); //LIGA PRO CALLBACK
+Gosub(RULE-3287,1); //SAIDA_CHIPEIRA_RP
+    goto i,1;
+pattern 0117XXXXXXX:
+    Gosub(RULE-1468,1); //TesteRota_VC1
+Gosub(RULE-818,1); //Saidas_WTL_Celular
+Gosub(RULE-660,1); //Celular_Local
+Gosub(RULE-880,1); //LIGA PRO CALLBACK
+Gosub(RULE-3287,1); //SAIDA_CHIPEIRA_RP
+    goto i,1;
+pattern 55119XXXXXXXX:
+    Gosub(RULE-1468,1); //TesteRota_VC1
+Gosub(RULE-818,1); //Saidas_WTL_Celular
+Gosub(RULE-660,1); //Celular_Local
+Gosub(RULE-880,1); //LIGA PRO CALLBACK
+Gosub(RULE-3287,1); //SAIDA_CHIPEIRA_RP
+    goto i,1;
+pattern 0105X:
+    Gosub(RULE-3936,1); //Gratuitas
+    goto i,1;
+pattern 10X:
+    Gosub(RULE-3936,1); //Gratuitas
+    goto i,1;
+pattern 103XX:
+    Gosub(RULE-3936,1); //Gratuitas
+    goto i,1;
+pattern 15X:
+    Gosub(RULE-3936,1); //Gratuitas
+    goto i,1;
+pattern 0800.:
+    Gosub(RULE-3936,1); //Gratuitas
+    goto i,1;
+pattern 102XX:
+    Gosub(RULE-3936,1); //Gratuitas
+    goto i,1;
+pattern 10621:
+    Gosub(RULE-3936,1); //Gratuitas
+    goto i,1;
+pattern 19X:
+    Gosub(RULE-3936,1); //Gratuitas
+    goto i,1;
+pattern 10615:
+    Gosub(RULE-3936,1); //Gratuitas
+    goto i,1;
+pattern 13X:
+    Gosub(RULE-3936,1); //Gratuitas
+    goto i,1;
+pattern 1142100101:
+    Gosub(RULE-4937,1); //ENTRADA_DAS_07_AS_08
+Gosub(RULE-3908,1); //ENTRADA_SEG_A_SEX
+Gosub(RULE-3911,1); //ENTRADA_SABADO
+Gosub(RULE-3910,1); //FORA_HORARIO_GERAL
+Gosub(RULE-3773,1); //Entradas_VIP
+    goto i,1;
+pattern 08005802001:
+    Gosub(RULE-4937,1); //ENTRADA_DAS_07_AS_08
+Gosub(RULE-3908,1); //ENTRADA_SEG_A_SEX
+Gosub(RULE-3911,1); //ENTRADA_SABADO
+Gosub(RULE-3910,1); //FORA_HORARIO_GERAL
+Gosub(RULE-3773,1); //Entradas_VIP
+    goto i,1;
+pattern 1120502206:
+    Gosub(RULE-4937,1); //ENTRADA_DAS_07_AS_08
+Gosub(RULE-3908,1); //ENTRADA_SEG_A_SEX
+Gosub(RULE-3911,1); //ENTRADA_SABADO
+Gosub(RULE-3910,1); //FORA_HORARIO_GERAL
+Gosub(RULE-3773,1); //Entradas_VIP
+    goto i,1;
+pattern 1[1-6]XXXXXX:
+    Gosub(RULE-1082,1); //IAX_VIP_IPBX
+    goto i,1;
+
+            default: 
+                goto i,1;
+        }
+    }
+}

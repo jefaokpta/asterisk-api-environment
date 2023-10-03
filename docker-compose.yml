@@ -1,0 +1,14 @@
+version: "3.7"
+services: 
+
+  asterisk:
+    build: .
+    network_mode: host
+    volumes: 
+      - /etc/localtime:/etc/localtime:ro
+      - ./asterisk:/etc/asterisk
+      - ./varLibAsterisk:/var/lib/asterisk
+      - ./varLogAsterisk:/var/log/asterisk
+    #   - /opt/records:/records
+    # restart: always
+
