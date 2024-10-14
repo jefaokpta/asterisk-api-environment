@@ -3,4 +3,4 @@ varLibAsterisk/
 varLogAsterisk/
 asterisk/keys/
 
-.DS_Store
+docker-asterisk/*.gz

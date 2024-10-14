@@ -16,6 +16,8 @@ RUN cd $(ls |grep asterisk) \
 && make menuselect.makeopts \
 && menuselect/menuselect \
 --enable BUILD_NATIVE \
+#CODECS TRANSLATORS
+--disable codec_opus \
 #CHANNELS
 --disable chan_sip \
 --disable chan_skinny \
