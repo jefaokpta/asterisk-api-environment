@@ -1,6 +1,9 @@
 records/
-varLibAsterisk/
 varLogAsterisk/
 asterisk/keys/
+
+varLibAsterisk/sounds/
+varLibAsterisk/moh/
+varLibAsterisk/astdb.sqlite3
 
 docker-asterisk/*.gz

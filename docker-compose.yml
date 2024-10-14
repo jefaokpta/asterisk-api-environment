@@ -11,24 +11,24 @@ services:
       - ./audios:/audios
     logging:
       driver: none
-    restart: on-failure
+    # restart: on-failure
 
-  api:
-    build: ./docker-api
-    environment:
-      - TZ=America/Sao_Paulo
-      - ASTERISK_HOST=host.docker.internal
-      - VIP_HOST=http://host.docker.internal:8080
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    volumes: 
-      - ./asterisk:/asterisk
-    ports:
-      - "8000:8080"
-      - "4573:4573"
-    networks:
-      - pabx
+#   api:
+#     build: ./docker-api
+#     environment:
+#       - TZ=America/Sao_Paulo
+#       - ASTERISK_HOST=host.docker.internal
+#       - VIP_HOST=http://host.docker.internal:8080
+#     extra_hosts:
+#       - "host.docker.internal:host-gateway"
+#     volumes: 
+#       - ./asterisk:/asterisk
+#     ports:
+#       - "8000:8080"
+#       - "4573:4573"
+#     networks:
+#       - pabx
 
 
-networks:
-  pabx:
+# networks:
+#   pabx:
