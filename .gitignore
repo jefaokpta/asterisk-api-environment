@@ -7,3 +7,4 @@ varLibAsterisk/moh/
 varLibAsterisk/astdb.sqlite3
 
 docker-asterisk/*.gz
+docker-api/*.jar
