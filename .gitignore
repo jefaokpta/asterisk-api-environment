@@ -8,3 +8,5 @@ varLibAsterisk/astdb.sqlite3
 
 docker-asterisk/*.gz
 docker-api/*.jar
+
+asterisk/blocked-ips.json
