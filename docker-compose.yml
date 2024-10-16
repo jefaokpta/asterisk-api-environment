@@ -19,6 +19,8 @@ services:
       - TZ=America/Sao_Paulo
       - ASTERISK_HOST=host.docker.internal
       - VIP_HOST=http://host.docker.internal:8080
+      - PABX_TRUNK=TWILLIO_JUPITER
+      - PABX_TECH_PREFIX=101#
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes: 
