@@ -1,17 +1,23 @@
 services: 
 
-  asterisk:
-    build: ./docker-asterisk
-    network_mode: host
-    volumes: 
-      - /etc/localtime:/etc/localtime:ro
-      - ./asterisk:/etc/asterisk:ro
-      - ./varLibAsterisk:/var/lib/asterisk
-      - ./varLogAsterisk:/var/log/asterisk
-      - ./audios:/audios
-    logging:
-      driver: none
-    # restart: on-failure
+  proxy:
+    image: nginx:1.27.2
+    volumes:
+      - ./nginx/conf-proxy:/etc/nginx/conf.d/
+      # - ./nginx/certs:/etc/nginx/certs/
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - pabx
+
+  static-files:
+    image: nginx:1.27.2
+    volumes:
+      - ./nginx/conf-static:/etc/nginx/conf.d/
+      - ./audios/records/mp3s:/var/www/app/static/:ro
+    networks:
+      - pabx
 
   api:
     build: ./docker-api
@@ -25,11 +31,24 @@ services:
       - "host.docker.internal:host-gateway"
     volumes: 
       - ./asterisk:/asterisk
+      - ./audios:/audios
     ports:
-      - "8080:8080"
       - "4573:4573"
     networks:
       - pabx
+
+  asterisk:
+    build: ./docker-asterisk
+    network_mode: host
+    volumes: 
+      - /etc/localtime:/etc/localtime:ro
+      - ./asterisk:/etc/asterisk:ro
+      - ./varLibAsterisk:/var/lib/asterisk
+      - ./varLogAsterisk:/var/log/asterisk
+      - ./audios:/audios
+    logging:
+      driver: none
+    # restart: on-failure
 
 
 networks:
