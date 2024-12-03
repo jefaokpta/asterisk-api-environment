@@ -4,9 +4,8 @@ services:
     image: nginx:1.27.2
     volumes:
       - ./nginx/conf-proxy:/etc/nginx/conf.d/
-      # - ./nginx/certs:/etc/nginx/certs/
+      - ./nginx/certs:/etc/nginx/certs/
     ports:
-      - 80:80
       - 443:443
     networks:
       - pabx
