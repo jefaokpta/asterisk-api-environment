@@ -60,7 +60,7 @@ RUN cd $(ls |grep asterisk) \
 --disable cel_tds \
 menuselect.makeopts \
 && make \
-&& make install \
-&& make samples 
+&& make install
+# && make samples 
 
 CMD [ "/usr/sbin/asterisk", "-mqf"]
