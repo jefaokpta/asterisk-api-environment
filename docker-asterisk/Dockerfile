@@ -2,11 +2,11 @@ FROM debian:12
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-COPY ./asterisk-18-current.tar.gz /
+COPY ./asterisk-20-current.tar.gz /
 
 RUN apt-get update \
-&& tar -zxf asterisk-18-current.tar.gz \
-&& rm asterisk-18-current.tar.gz \
+&& tar -zxf asterisk-20-current.tar.gz \
+&& rm asterisk-20-current.tar.gz \
 && cd $(ls |grep asterisk) \
 && contrib/scripts/install_prereq install \
 && ./configure \
@@ -21,7 +21,6 @@ RUN cd $(ls |grep asterisk) \
 #CHANNELS
 --disable chan_sip \
 --disable chan_skinny \
---disable chan_oss \
 --disable chan_mgcp \
 --disable chan_motif \
 --disable chan_dahdi \
@@ -44,11 +43,7 @@ RUN cd $(ls |grep asterisk) \
 --disable res_monitor \
 #APPS
 --disable app_adsiprog \
---disable app_ices \
 --disable app_osplookup \
---disable app_image \
---disable app_url \
---disable app_nbscat \
 --disable app_getcpeid \
 #CDR MODULES
 --disable cdr_adaptive_odbc \
@@ -66,12 +61,6 @@ RUN cd $(ls |grep asterisk) \
 menuselect.makeopts \
 && make \
 && make install
-# && make samples \
-#&& cd ../ && rm -r asterisk*
+# && make samples 
 
-# COPY ./libmyodbc8a.so /usr/lib/x86_64-linux-gnu/odbc/
-# COPY odbc.ini /etc
-# COPY odbcinst.ini /etc
-
-#ENTRYPOINT [ "/usr/sbin/asterisk", "-mqf"]
 CMD [ "/usr/sbin/asterisk", "-mqf"]
