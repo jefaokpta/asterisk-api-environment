@@ -16,7 +16,7 @@ services:
     image: nginx:1.27.2
     volumes:
       - ./nginx/conf-static:/etc/nginx/conf.d/
-      - ./varSpoolAsterisk/recording/mp3s:/var/www/app/static/:ro
+      - ./varSpoolAsterisk/recording:/var/www/app/static/:ro
     networks:
       - pabx
 
