@@ -2,6 +2,7 @@ audios/
 varLogAsterisk/
 varSpoolAsterisk/
 asterisk/keys/
+asterisk/pjsip-peers.conf
 
 varLibAsterisk/sounds/
 varLibAsterisk/moh/
