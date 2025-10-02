@@ -3,6 +3,7 @@ varLogAsterisk/
 varSpoolAsterisk/
 asterisk/keys/
 asterisk/pjsip-peers.conf
+asterisk/pjsip-trunks.conf
 
 varLibAsterisk/sounds/
 varLibAsterisk/moh/
