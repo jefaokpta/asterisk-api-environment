@@ -1,5 +1,25 @@
 services: 
 
+  proxy:
+    image: nginx:1.27.2
+    volumes:
+      - ./nginx/conf-proxy:/etc/nginx/conf.d/
+      - ./nginx/certs:/etc/nginx/certs/
+    ports:
+      - 443:443
+    networks:
+      - pabx
+    extra_hosts:
+      - host.docker.internal:host-gateway
+
+  static-files:
+    image: nginx:1.27.2
+    volumes:
+      - ./nginx/conf-static:/etc/nginx/conf.d/
+      - ./varSpoolAsterisk/recording:/var/www/app/static/:ro
+    networks:
+      - pabx
+
   asterisk:
     build: ./docker-asterisk
     network_mode: host
@@ -8,26 +28,10 @@ services:
       - ./asterisk:/etc/asterisk:ro
       - ./varLibAsterisk:/var/lib/asterisk
       - ./varLogAsterisk:/var/log/asterisk
-      - ./audios:/audios
+      - ./varSpoolAsterisk:/var/spool/asterisk
     logging:
       driver: none
     # restart: on-failure
-
-  api:
-    build: ./docker-api
-    environment:
-      - TZ=America/Sao_Paulo
-      - ASTERISK_HOST=host.docker.internal
-      - VIP_HOST=http://host.docker.internal:8080
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    volumes: 
-      - ./asterisk:/asterisk
-    ports:
-      - "8080:8080"
-      - "4573:4573"
-    networks:
-      - pabx
 
 
 networks:

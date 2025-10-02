@@ -1,0 +1,9 @@
+/opt/asterisk-api-environment/varLogAsterisk/full {
+    daily              
+    rotate 7          
+    missingok          # Não gera erro se o log não existir
+    notifempty         # Não rotaciona se estiver vazio
+    compress           # Comprime os logs antigos
+    delaycompress      # Evita compressão do log mais recente
+    copytruncate       # Evita reiniciar o serviço ao rotacionar
+}

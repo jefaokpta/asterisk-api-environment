@@ -1,6 +1,8 @@
-records/
+audios/
 varLogAsterisk/
+varSpoolAsterisk/
 asterisk/keys/
+asterisk/pjsip-peers.conf
 
 varLibAsterisk/sounds/
 varLibAsterisk/moh/
@@ -8,5 +10,7 @@ varLibAsterisk/astdb.sqlite3
 
 docker-asterisk/*.gz
 docker-api/*.jar
+
+nginx/certs/
 
 asterisk/blocked-ips.json
