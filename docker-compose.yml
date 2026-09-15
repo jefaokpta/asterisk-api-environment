@@ -12,14 +12,6 @@ services:
     extra_hosts:
       - host.docker.internal:host-gateway
 
-  static-files:
-    image: nginx:1.27.2
-    volumes:
-      - ./nginx/conf-static:/etc/nginx/conf.d/
-      - ./varSpoolAsterisk/recording:/var/www/app/static/:ro
-    networks:
-      - pabx
-
   asterisk:
     build: ./docker-asterisk
     network_mode: host
@@ -33,6 +25,28 @@ services:
       driver: none
     # restart: on-failure
 
+  promtail:
+      image: grafana/promtail:3.6.11
+      command: -config.file=/etc/promtail/config.yml
+      volumes: 
+        - "./promtail/promtail.yaml:/etc/promtail/config.yml" 
+        - "./promtail/position:/position"      
+      networks:
+        - pabx
+      ports:
+        - 9080:9080
+      depends_on:
+        - loki
+
+  loki:
+    image: grafana/loki:3.6.11
+    ports:
+      - "3100:3100"
+    command: 
+      - -config.file=/etc/loki/local-config.yaml
+      - -print-config-stderr=true
+    networks:
+      - pabx
 
 networks:
   pabx:
