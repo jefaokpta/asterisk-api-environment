@@ -7,18 +7,8 @@ services:
       - ./nginx/certs:/etc/nginx/certs/
     ports:
       - 443:443
-    networks:
-      - pabx
     extra_hosts:
       - host.docker.internal:host-gateway
-
-  static-files:
-    image: nginx:1.27.2
-    volumes:
-      - ./nginx/conf-static:/etc/nginx/conf.d/
-      - ./varSpoolAsterisk/recording:/var/www/app/static/:ro
-    networks:
-      - pabx
 
   asterisk:
     build: ./docker-asterisk
@@ -34,5 +24,3 @@ services:
     # restart: on-failure
 
 
-networks:
-  pabx:
