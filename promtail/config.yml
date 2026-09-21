@@ -14,7 +14,7 @@ scrape_configs:
   - targets:
       - localhost
     labels:
-      job: console
+      job: console-register-homolog
       __path__: /var/log/asterisk/full
   pipeline_stages:
   - regex:
