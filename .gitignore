@@ -15,3 +15,5 @@ docker-api/*.jar
 nginx/certs/
 
 asterisk/blocked-ips.json
+
+promtail/position/
