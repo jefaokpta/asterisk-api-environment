@@ -4,6 +4,7 @@ varSpoolAsterisk/
 asterisk/keys/
 asterisk/pjsip-peers.conf
 asterisk/pjsip-trunks.conf
+asterisk/pjsip-registers.conf
 
 varLibAsterisk/sounds/
 varLibAsterisk/moh/

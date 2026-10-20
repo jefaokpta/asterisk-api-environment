@@ -6,15 +6,15 @@ positions:
   filename: /position/positions.yaml
 
 clients:
-  - url: http://201.23.67.250:3100/loki/api/v1/push
+  - url: http://grafana.vipsolutions.com.br:3100/loki/api/v1/push
 
 scrape_configs:
-- job_name: register-asterisk
+- job_name: worker-asterisk
   static_configs:
   - targets:
       - localhost
     labels:
-      job: console-worker-homolog
+      job: console-worker-production
       __path__: /var/log/asterisk/full
   pipeline_stages:
   - regex:
